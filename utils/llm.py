@@ -28,7 +28,7 @@ def call_langchain(content_name, query):
         db = FAISS.load_local(content_name, embeddings, content_name)
     except:
         db = FAISS.from_documents(docs, embeddings)
-        db.save_local(content_name, content_name)
+        db.save_local(f"./IpoStatics/{content_name}", content_name)
 
     retriever = db.as_retriever()
 
