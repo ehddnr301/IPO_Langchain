@@ -1,5 +1,7 @@
 # IPO
 
+<img src="statics/sample.png" style="width:70%">
+
 - IPO 투자 판단을 위해 ChatGPT의 도움을 받아보려는 프로젝트입니다.
 
 ## Project Environment
