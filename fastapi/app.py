@@ -23,12 +23,14 @@ collection = db["ipo"]
 
 
 class IpoIn(BaseModel):
+    title: str = Field(..., min_length=1, max_length=200)
     query: str = Field(..., min_length=1, max_length=200)
     result: str = Field(..., min_length=1, max_length=2000)
     source_documents: list[str] = Field(..., min_items=1, max_items=10)
 
 
 class IpoOut(BaseModel):
+    title: str
     query: str
     result: str
     source_documents: list[str]
