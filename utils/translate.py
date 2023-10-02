@@ -1,8 +1,7 @@
-from googletrans import Translator
+from translate import Translator
 
 
 def translate_korean_to_english(from_word):
-    translator = Translator()
-    translated = translator.translate(from_word, dest="en")
-    to_word = translated.text
-    return to_word
+    translator = Translator(to_lang="en", from_lang="ko")
+    translated = translator.translate(from_word)
+    return translated

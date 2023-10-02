@@ -7,11 +7,10 @@ from utils.llm import call_langchain
 if __name__ == "__main__":
     df = crawl_ipo38()
 
-    kor_stock_name = df["종목명"].iloc[2]
+    kor_stock_name = df["종목명"].iloc[0]
     eng_stock_name = "_".join(translate_korean_to_english(kor_stock_name).split(" "))
-    query = (
-        f"""{kor_stock_name} IPO 투자에 대한 적절성을 Yes Or No 로 만 표시해준 뒤에 다음 줄에 근거를 이야기 해줘"""
-    )
+
+    query = f"""{kor_stock_name} IPO 투자에 대한 적절성에 대해 긍정적인 의견 최대 3가지와 부정적인 의견 최대 3가지를 작성해주세요."""
 
     ipo_name = search_naver_blog(kor_stock_name)
 
@@ -27,3 +26,5 @@ if __name__ == "__main__":
         result = call_langchain(eng_stock_name, query)
 
         print(result)
+        print(type(result))
+        print(dir(result))

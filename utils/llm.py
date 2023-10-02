@@ -11,7 +11,7 @@ load_dotenv()
 
 
 def call_langchain(content_name, query):
-    loader = TextLoader(f"./{content_name}.txt", encoding="UTF-*")
+    loader = TextLoader(f"./IpoStatics/{content_name}.txt", encoding="UTF-*")
     document = loader.load()
 
     text_splitter = CharacterTextSplitter(
